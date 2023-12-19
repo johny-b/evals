@@ -22,6 +22,8 @@ from .solvers.utils import maybe_wrap_with_solver
 
 logger = logging.getLogger(__name__)
 
+#   Silence httpx logger - otherwise we'll have a single line in logs for every request
+logging.getLogger("httpx").setLevel(logging.WARNING)
 
 SHUFFLE_SEED = 123
 _MAX_SAMPLES = None
